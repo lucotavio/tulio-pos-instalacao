@@ -18,6 +18,24 @@ mkdir /home/$USER/Temp/
 ## Criando diretorio Servidores
 mkdir /home/$USER/Servidores/
 
+## Criando diretorio do OBS Studio
+mkdir /home/$USER/Vídeos/OBS-Studio/
+
+## Criando diretorio ISO dentro da pasta Instalacao
+mkdir -p /home/$USER/Instalacao/ISO/
+
+## Criando diretorio Script dentro da pasta InstalacaoF/usr/-
+mkdir /home/$USER/Instalacao/Script/
+
+##Criando diretorio Angular dentro do diretorio Projetos
+mkdir -p /home/$USER/Projetos/Angular
+
+##Criando diretorio Angular-Spring dentro do diretorio Projetos
+mkdir /home/$USER/Projetos/Angular-Spring
+
+##Criando diretorio Java dentro do diretorio Projetos
+mkdir /home/$USER/Projetos/Java
+
 ## Entrando na para pasta de programas
 cd /home/$USER/Downloads/Programas/
 
@@ -40,6 +58,13 @@ else
     echo "#!/bin/bash" > /home/$USER/Modelos/shell-script.sh
 fi
 
+
+## Criando modelo de arquivo de script de banco de dados
+if [ -e /home/$USER/Modelos/script-DB.sql ];then
+    echo "O arquivo  script-DB.sql  ja existe"
+else
+    touch /home/$USER/Modelos/script-DB.sql
+fi
 
 
 ## E nescessario instalar os compactadores
@@ -113,15 +138,6 @@ else
 fi
 
 
-## Download Dropbox
-echo -e "\n\n\n Dropbox"
-if [ -e dropbox_2020.03.04_amd64.deb ];then
-    echo "O arquivo  dropbox_2020.03.04_amd64.deb  ja existe"
-else
-    curl -L -o dropbox_2020.03.04_amd64.deb https://www.dropbox.com/s/iozwc5taa2qax2u/dropbox_2020.03.04_amd64.deb?dl=0
-fi
-
-
 ## Download Eclipse
 echo -e "\n\n\n Eclipse"
 if [ -e eclipse-jee-2022-09.deb ];then
@@ -155,6 +171,14 @@ if [ -e lombok.jar ];then
     echo "O arquivo lombok.jar ja existe"
 else
     curl -L -o lombok.jar https://www.dropbox.com/s/sozukz41qxl1tfa/lombok.jar?dl=0
+fi
+
+
+## Download Mysql
+if [ -e mysql-apt-config_0.8.22-1_all.deb ];then
+    echo "O mysql-apt-config_0.8.22-1_all.deb ja existe"
+else
+    curl -L -o mysql-apt-config_0.8.24-1_all.deb https://www.dropbox.com/s/frw753s7blilmul/mysql-apt-config_0.8.24-1_all.deb?dl=0
 fi
 
 
@@ -417,9 +441,6 @@ sudo fc-cache -f -v
 ## Instalando VirtualBox
 sudo apt install -y virtualbox
 
-## Instalando VirtualBox
-## sudo apt install -y virtualbox
-
 ## Instalando gcc g++
 sudo apt install -y gcc g++ make
 
@@ -451,20 +472,11 @@ sudo apt install -y chrome-gnome-shell
 ## Instalando o gerenciador de extensões
 sudo apt install -y gnome-shell-extension-manager
 
-## Instalando Kolourpaint
-sudo apt install -y kolourpaint
-
 ## Instalando o Dconf-editor
 sudo apt install -y dconf-editor
 
 ## Instalando Gparted
 sudo apt install -y gparted
-
-## Instalando Spotify
-curl -sS https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | sudo apt-key add -
-echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-sudo apt update -y
-sudo apt install -y spotify-client
 
 echo  "**********************************************************************************************************************************************"
 
@@ -495,6 +507,50 @@ git config --global difftool.prompt false
 git config --global merge.tool meld
 git config --global mergetool.meld.path "/usr/bin/meld"
 git config --global mergetool.prompt false
+
+echo "***********************************************************************************************************************************************"
+
+
+
+
+echo -e "\n\n***************************************************** INSTALANDO  O  MYSQL *************************************************************"
+
+chmod +x mysql-apt-config_0.8.24-1_all.deb
+sudo dpkg -i mysql-apt-config_0.8.24-1_all.deb
+sudo apt --fix-broken install -y
+
+## Atualizando a maneira de atualizar as keys dos repositorio sao salvas
+cd /etc/apt
+sudo cp trusted.gpg trusted.gpg.d
+
+sudo apt update -y
+sudo apt install -y mysql-server
+sudo apt install -y mysql-workbench-community
+
+echo -e "\n\n****************************************************************************************************************************************"
+
+
+
+
+echo -e "\n\n\n************************************************** INSTALANDO  POSTGRES **************************************************************"
+
+sudo chmod 755 /home/$USER
+## mkdir -p /home/$USER/PGDATA
+## chown postgres:postgres -R /home/$USER/PGDATA
+
+sudo apt update -y
+sudo apt-get install -y postgresql postgresql-contrib
+
+## Alterando a senha do usuario postgres no SGBD PostgreSQL
+sudo -u postgres -H -- psql -c "ALTER USER postgres PASSWORD '789789';"
+
+## Criando usuario luciano no SGBD PostgreSQL
+sudo -u postgres -H -- psql -c "CREATE USER luciano WITH ENCRYPTED PASSWORD '789789';"
+
+## Alterando permissoes do usuario luciano
+## para ele se tornar um super usuario
+## no SGBD PostgreSQL
+sudo -u postgres -H -- psql -c "ALTER USER luciano WITH SUPERUSER"
 
 echo "***********************************************************************************************************************************************"
 
