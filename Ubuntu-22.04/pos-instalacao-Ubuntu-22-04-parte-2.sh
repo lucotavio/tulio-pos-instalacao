@@ -84,9 +84,6 @@ sudo snap connect visualg:wine-runtime wine-platform-runtime
 sudo snap connect visualg:wine-3-stable wine-platform-3-stable
 sudo snap refresh visualg
 
-## Instalando Notepad ++
-sudo snap install notepad-plus-plus
-
 echo -e "\n\n\n**************************************************************************************************************************************"
 
 
@@ -187,19 +184,6 @@ sudo java -jar lombok.jar
 
 echo "***********************************************************************************************************************************************"
 
-
-
-
-echo -e "\n\n\n****************************DELETANDO  ARQUIVOS  DA  PASTA  MODELO  CRIADOS  AUTOMATICAMENTE *****************************************"
-
-sudo rm /home/$USER/Modelos/DOC\ Document.docx
-sudo rm /home/$USER/Modelos/DOCX\ Document.docx
-sudo rm /home/$USER/Modelos/PPT\ Presentation.ppt
-sudo rm /home/$USER/Modelos/PPTX\ Presentation.pptx
-sudo rm /home/$USER/Modelos/XLS\ Worksheet.xls
-sudo rm /home/$USER/Modelos/XLSX\ Worksheet.xlsx
-
-echo -e "\n\n\n**************************************************************************************************************************************"
 
 
 
