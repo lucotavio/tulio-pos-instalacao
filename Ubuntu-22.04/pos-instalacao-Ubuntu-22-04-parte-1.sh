@@ -175,8 +175,8 @@ fi
 
 
 ## Download Mysql
-if [ -e mysql-apt-config_0.8.22-1_all.deb ];then
-    echo "O mysql-apt-config_0.8.22-1_all.deb ja existe"
+if [ -e mysql-apt-config_0.8.24-1_all.deb ];then
+    echo "O mysql-apt-config_0.8.24-1_all.deb ja existe"
 else
     curl -L -o mysql-apt-config_0.8.24-1_all.deb https://www.dropbox.com/s/frw753s7blilmul/mysql-apt-config_0.8.24-1_all.deb?dl=0
 fi
@@ -206,6 +206,15 @@ if [ -e portugol-studio-2.7.5-linux-x64.run ];then
     echo "O arquivo  portugol-studio-2.7.5-linux-x64.run  ja existe"
 else
     curl -L -o portugol-studio-2.7.5-linux-x64.run https://www.dropbox.com/s/x9e9qgvud4y2wbt/portugol-studio-2.7.5-linux-x64.run?dl=0
+fi
+
+
+## Download Spring Tool Suite
+echo -e "\n\n\n Spring Tool Suite"
+if [ -e sts-4.16.0.RELEASE.deb ];then
+    echo "O arquivo  sts-4.16.0.RELEASE.deb  ja existe"
+else
+    curl -L -o sts-4.16.0.RELEASE.deb https://www.dropbox.com/s/r49cmygzr3rgt9r/sts-4.16.0.RELEASE.deb?dl=0
 fi
 
 
@@ -487,8 +496,8 @@ echo -e "\n\n\n************************************************** INSTALANDO  GI
 
 ## Instalando o Git
 sudo apt install -y git
-git config --global user.name "Luciano"
-git config --global user.email "luc.oliveira343@gmail.com"
+git config --global user.name "Tulio"
+git config --global user.email "tulio@gmail.com"
 ## git config --global credential.helper store
 
 

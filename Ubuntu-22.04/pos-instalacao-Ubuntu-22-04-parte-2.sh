@@ -48,47 +48,12 @@ echo -e "\n\n\n*****************************************************************
 
 echo -e "\n\n\n********************************* INSTALANDO  DRIVER  DE  VIDEO  E  INSTALANDO  LIVEPATCH*********************************************"
 
+sudo apt update -y
+sudo ubuntu-drivers devices
+sudo apt install -y ubuntu-advantage-tools
+sudo apt install -y nvidia-driver-390
+sudo ua attach C12Jp442FKeioyspXdSyrbG9aHn9hw
 
-while true
-do
-    echo -e "\n\nDigite opção 1 ou 2 ou 3"
-    echo "1 - DESKTOP"
-    echo "2 - NOTEBOOK PESSOAL"
-    echo "3 - NOTEBOOK EMPRESA"
-
-    read opcao
-
-    sudo apt update -y
-    sudo ubuntu-drivers devices
-    sudo apt install -y ubuntu-advantage-tools
-
-    if [ $opcao -eq 1 ];then
-        echo -e "\n\n*************************************DESKTOP *****************************************************"
-
-        sudo apt install -y nvidia-driver-390
-        sudo ua attach C1NN7PA4J2HtxnsvSiTUPEs5bUU7Y
-
-        echo -e "\n\n**************************************************************************************************"
-        break
-    elif [ $opcao -eq 2 ];then
-        echo -e "\n\n*********************************** NOTEBOOK LUCIANO *********************************************"
-
-        sudo apt install -y nvidia-driver-525
-        sudo ua attach C1x3zxz1GFawrD8EY4oT7RsxsEfH1
-
-        echo -e "\n\n**************************************************************************************************"
-        break
-    elif [ $opcao -eq 3 ];then
-        echo -e "\n\n********************************* NOTEBOOK EMPRESA ***********************************************"
-
-        sudo ua attach C12Jp442FKeioyspXdSyrbG9aHn9hw
-
-        echo -e "\n\n**************************************************************************************************"
-        break
-    else
-        echo -e "\n\nOpcao invalida"
-    fi
-done
 
 echo "***********************************************************************************************************************************************"
 
@@ -191,6 +156,11 @@ sudo dpkg -i onlyoffice-desktopeditors_amd64.deb
 sudo apt --fix-broken install -y
 
 
+## Spring tool Suite
+sudo dpkg -i --force-overwrite sts-4.16.0.RELEASE.deb
+sudo apt --fix-broken install -y
+
+
 ## Visual Studio Code
 sudo dpkg -i code_1.74.2-1671533413_amd64.deb
 sudo apt --fix-broken install -y
@@ -203,6 +173,15 @@ sudo apt --fix-broken install -y
 
 
 echo -e "\n\n\n *********************************************INSTALANDO  LOMBOK  ECLIPSE ************************************************************"
+
+sudo java -jar lombok.jar
+
+echo "***********************************************************************************************************************************************"
+
+
+
+
+echo -e "\n\n\n *************************************  INSTALANDO  LOMBOK  SPRING TOOLS  SUITE ******************************************************"
 
 sudo java -jar lombok.jar
 
