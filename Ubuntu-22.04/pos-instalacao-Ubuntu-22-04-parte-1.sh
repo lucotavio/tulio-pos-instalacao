@@ -498,7 +498,7 @@ echo -e "\n\n\n************************************************** INSTALANDO  GI
 sudo apt install -y git
 git config --global user.name "Tulio"
 git config --global user.email "tulio@gmail.com"
-##git config --global credential.helper store
+## git config --global credential.helper store
 
 
 echo "***********************************************************************************************************************************************"
