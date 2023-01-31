@@ -109,6 +109,7 @@ fi
 
 ## Download Compactador
 echo -e "\n\n\n Compactador-tar-gz"
+echo "O arquivo  compactar-tar-gz  ja existe e vai ser copiado para pasta  /usr/local/bin/"
 if [ -e compactar-tar-gz ];then
     sudo cp compactar-tar-gz /usr/local/bin/
 else
@@ -130,6 +131,7 @@ fi
 ## Download Descompactador
 echo -e "\n\n\n Decompactador-tar-gz"
 if [ -e descompactar-tar-gz ];then
+    echo "O arquivo  descompactar-tar-gz  ja existe e vai ser copiado para pasta  /usr/local/bin/"
     sudo cp descompactar-tar-gz /usr/local/bin/
 else
     curl -L -o descompactar-tar-gz https://www.dropbox.com/s/vytdyan9ec5e7td/descompactar-tar-gz?dl=0
