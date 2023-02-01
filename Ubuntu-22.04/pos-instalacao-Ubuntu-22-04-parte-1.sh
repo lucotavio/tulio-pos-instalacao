@@ -167,6 +167,15 @@ else
 fi
 
 
+## Download Intellij Community
+echo -e "\n\n\n Intellij Community"
+if [ -e intellij-C.deb ];then
+    echo "O arquivo  intellij-C.deb  ja existe"
+else
+    curl -L -o intellij-C.deb https://www.dropbox.com/s/2zwg0i339qrb9br/intellij-C.deb?dl=0
+fi
+
+
 ## Download Lombok
 echo -e "\n\n\n Lombok"
 if [ -e lombok.jar ];then
@@ -208,6 +217,15 @@ if [ -e portugol-studio-2.7.5-linux-x64.run ];then
     echo "O arquivo  portugol-studio-2.7.5-linux-x64.run  ja existe"
 else
     curl -L -o portugol-studio-2.7.5-linux-x64.run https://www.dropbox.com/s/x9e9qgvud4y2wbt/portugol-studio-2.7.5-linux-x64.run?dl=0
+fi
+
+
+## Download Postman
+echo -e "\n\n\n Postman"
+if [ -e postman.deb ];then
+    echo "O arquivo  postman.deb  ja existe"
+else
+    curl -L -o postman.deb https://www.dropbox.com/s/fqbfvndl4bppiho/postman.deb?dl=0
 fi
 
 

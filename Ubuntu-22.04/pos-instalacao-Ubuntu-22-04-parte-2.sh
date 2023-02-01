@@ -64,8 +64,6 @@ echo -e "\n\n\n************************************************** INSTALANDO  PA
 
 
 flatpak install flathub io.atom.Atom -y
-flatpak install flathub com.jetbrains.IntelliJ-IDEA-Community -y
-flatpak install flathub com.getpostman.Postman -y
 flatpak install flathub com.spotify.Client -y
 
 
@@ -143,6 +141,11 @@ sudo dpkg -i Insomnia.Core-2022.6.0.deb
 sudo apt --fix-broken install -y
 
 
+## Intellij Community
+sudo dpkg -i intellij-C.deb
+sudo apt --fix-broken install -y
+
+
 ## Netbeans
 sudo dpkg -i netbeans_16-1_all.deb
 sudo apt --fix-broken install -y
@@ -150,6 +153,11 @@ sudo apt --fix-broken install -y
 
 ## Only Office
 sudo dpkg -i onlyoffice-desktopeditors_amd64.deb
+sudo apt --fix-broken install -y
+
+
+## Postman
+sudo dpkg -i postman.deb
 sudo apt --fix-broken install -y
 
 
