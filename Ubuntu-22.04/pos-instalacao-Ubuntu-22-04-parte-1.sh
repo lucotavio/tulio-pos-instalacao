@@ -167,15 +167,6 @@ else
 fi
 
 
-## Download Intellij Community
-echo -e "\n\n\n Intellij Community"
-if [ -e intellij-C.deb ];then
-    echo "O arquivo  intellij-C.deb  ja existe"
-else
-    curl -L -o intellij-C.deb https://www.dropbox.com/s/2zwg0i339qrb9br/intellij-C.deb?dl=0
-fi
-
-
 ## Download Lombok
 echo -e "\n\n\n Lombok"
 if [ -e lombok.jar ];then
@@ -217,15 +208,6 @@ if [ -e portugol-studio-2.7.5-linux-x64.run ];then
     echo "O arquivo  portugol-studio-2.7.5-linux-x64.run  ja existe"
 else
     curl -L -o portugol-studio-2.7.5-linux-x64.run https://www.dropbox.com/s/x9e9qgvud4y2wbt/portugol-studio-2.7.5-linux-x64.run?dl=0
-fi
-
-
-## Download Postman
-echo -e "\n\n\n Postman"
-if [ -e postman.deb ];then
-    echo "O arquivo  postman.deb  ja existe"
-else
-    curl -L -o postman.deb https://www.dropbox.com/s/fqbfvndl4bppiho/postman.deb?dl=0
 fi
 
 
@@ -276,11 +258,12 @@ fi
 
 ## Download Tomcat
 echo -e "\n\n\n Tomcat"
-if [ -d /home/$USER/Servidores/apache-tomcat-9.0.68 ];then
-    echo "O diretorio  /home/$USER/Servidores/apache-tomcat-9.0.68  ja existe"
+if [ -d apache-tomcat-9.0.68 ];then
+    echo "O diretorio apache-tomcat-9.0.68 esta sendo copiado"
+    rm -r /home/$USER/Servidores/apache-tomcat-9.0.68
+    cp -r apache-tomcat-9.0.68 /home/$USER/Servidores/
 else
     curl -L -o apache-tomcat-9.0.68.tar.gz https://www.dropbox.com/s/nsn2et4pg73ie5h/apache-tomcat-9.0.68.tar.gz?dl=0
-
     descompactar-tar-gz apache-tomcat-9.0.68.tar.gz
     cp -r apache-tomcat-9.0.68 /home/$USER/Servidores/
 fi
@@ -288,11 +271,12 @@ fi
 
 ## Download Wildfly
 echo -e "\n\n\n Wildfly"
-if [ -d /home/$USER/Servidores/wildfly-26.1.2.Final ];then
-    echo "O diretorio  /home/$USER/Servidores/wildfly-26.1.2.Final  ja existe"
+if [ -d wildfly-26.1.2.Final ];then
+    echo "O diretorio wildfly-26.1.2.Final esta sendo copiado"
+    rm -r /home/$USER/Servidores/wildfly-26.1.2.Final
+    cp -r wildfly-26.1.2.Final /home/$USER/Servidores/
 else
     curl -L -o wildfly-26.1.2.Final.tar.gz https://www.dropbox.com/s/u8211vat0fcetg8/wildfly-26.1.2.Final.tar.gz?dl=0
-
     descompactar-tar-gz wildfly-26.1.2.Final.tar.gz
     cp -r wildfly-26.1.2.Final /home/$USER/Servidores/
 fi
@@ -300,11 +284,12 @@ fi
 
 ## Download Netbeans plugins
 echo -e "\n\n\n Netbeans plugins"
-if [ -d /home/$USER/Instalacao/netbeans-plugins ];then
-    echo "O diretorio  /home/$USER/Instalacao/netbeans-plugins  ja existe"
+if [ -d netbeans-plugins ];then
+    echo "O diretorio netbeans-plugins esta sendo copiado"
+    rm -r /home/$USER/Instalacao/netbeans-plugins
+    cp -r netbeans-plugins /home/$USER/Instalacao/
 else
     curl -L -o netbeans-plugins.tar.gz https://www.dropbox.com/s/gc1h7pum5oa776i/netbeans-plugins.tar.gz?dl=0
-
     descompactar-tar-gz netbeans-plugins.tar.gz
     cp -r netbeans-plugins /home/$USER/Instalacao/
 fi
@@ -312,11 +297,12 @@ fi
 
 #Download Drivers JDBC
 echo -e "\n\n\n Drivers JDBC"
-if [ -d /home/$USER/Instalacao/drivers-JDBC ];then
-    echo "O diretorio  /home/$USER/Instalacao/drivers-JDBC  ja existe"
+if [ -d drivers-JDBC ];then
+    echo "O diretorio drivers-JDBC esta sendo copiado"
+    rm -r /home/$USER/Instalacao/drivers-JDBC
+    cp -r drivers-JDBC /home/$USER/Instalacao/
 else
     curl -L -o drivers-JDBC.tar.gz https://www.dropbox.com/s/h6htbjk1ryrhgmm/drivers-JDBC.tar.gz?dl=0
-
     descompactar-tar-gz drivers-JDBC.tar.gz
     cp -r drivers-JDBC /home/$USER/Instalacao/
 fi
@@ -324,11 +310,12 @@ fi
 
 ## Download Wallpapers
 echo -e "\n\n\n Wallpapers"
-if [ -d /home/$USER/Imagens/wallpaper ];then
-    echo "O diretorio  /home/$USER/Imagens/wallpaper  ja existe"
+if [ -d wallpaper ];then
+    echo "O diretorio Wallpapers esta sendo copiado"
+    rm -r /home/$USER/Imagens/wallpaper
+    cp -r wallpaper /home/$USER/Imagens/
 else
     curl -L -o wallpaper.tar.gz https://www.dropbox.com/s/x2y60fdwjojc97f/wallpaper.tar.gz?dl=0
-
     descompactar-tar-gz wallpaper.tar.gz
     cp -r wallpaper /home/$USER/Imagens/
 fi
@@ -336,11 +323,12 @@ fi
 
 ## Download tema WhiteSur Dark solid
 echo -e "\n\n\n WhiteSur Dark solid"
-if [ -e /home/luciano/.themes/WhiteSur-dark-solid ];then
-    echo "O diretorio  /home/luciano/.themes/WhiteSur-dark-solid  ja existe"
+if [ -d WhiteSur-dark-solid ];then
+    echo "O diretorio WhiteSur-dark-solid esta sendo copiado"
+    rm -r /home/luciano/.themes/WhiteSur-dark-solid
+    cp -r WhiteSur-dark-solid /home/$USER/.themes/
 else
     curl -L -o WhiteSur-dark-solid.tar.gz https://www.dropbox.com/s/5har6w13jeb5834/WhiteSur-dark-solid.tar.gz?dl=0
-
     descompactar-tar-gz WhiteSur-dark-solid.tar.gz
     cp -r WhiteSur-dark-solid /home/$USER/.themes/
 fi
@@ -348,11 +336,12 @@ fi
 
 ## Download icones Big Sur
 echo -e "\n\n\n Big Sur Icons"
-if [ -e /home/luciano/.icons/BigSur ];then
-    echo "O diretorio  /home/luciano/.icons/BigSur  ja existe"
+if [ -d BigSur ];then
+    echo "O diretorio BigSur esta sendo copiado"
+    rm -r /home/luciano/.icons/BigSur
+    cp -r BigSur /home/$USER/.icons/
 else
     curl -L -o BigSur.tar.gz https://www.dropbox.com/s/vzbqwtz48r5u7lx/BigSur.tar.gz?dl=0
-
     descompactar-tar-gz BigSur.tar.gz
     cp -r BigSur /home/$USER/.icons/
 fi
@@ -360,11 +349,12 @@ fi
 
 ## Download icones Big Sur Dark
 echo -e "\n\n\n Big Sur Dark Icons"
-if [ -e /home/luciano/.icons/BigSur-dark ];then
-    echo "O diretorio  /home/luciano/.icons/BigSur-dark  ja existe"
+if [ -d BigSur-dark ];then
+    echo "O diretorio BigSur-dark esta sendo copiado"
+    rm -r /home/luciano/.icons/BigSur-dark
+    cp -r BigSur-dark /home/$USER/.icons/
 else
     curl -L -o BigSur-dark.tar.gz https://www.dropbox.com/s/1dw2bq6h3ja2uz1/BigSur-dark.tar.gz?dl=0
-
     descompactar-tar-gz BigSur-dark.tar.gz
     cp -r BigSur-dark /home/$USER/.icons/
 fi
@@ -372,11 +362,12 @@ fi
 
 ## Download MacMojave cursores
 echo -e "\n\n\n MacMojave cursores"
-if [ -e /home/luciano/.icons/McMojave-cursors ];then
-    echo "O diretorio  /home/luciano/.icons/McMojave-cursors  ja existe"
+if [ -d McMojave-cursors ];then
+    echo "O diretorio McMojave-cursors esta sendo copiado"
+    rm -r home/luciano/.icons/McMojave-cursors
+    cp -r McMojave-cursors /home/$USER/.icons/
 else
     curl -L -o McMojave-cursors.tar.gz https://www.dropbox.com/s/2pa43hb00yqt0io/McMojave-cursors.tar.gz?dl=0
-
     descompactar-tar-gz McMojave-cursors.tar.gz
     cp -r McMojave-cursors /home/$USER/.icons/
 fi
@@ -392,7 +383,6 @@ if [ -d jdk-17 ];then
     sudo cp -r jdk-17 /opt/
 else
     curl -L -o openjdk-17_35_linux-x64_bin.tar.gz https://www.dropbox.com/s/ch9h9fni6co9lkn/openjdk-17_35_linux-x64_bin.tar.gz?dl=0
-
     descompactar-tar-gz openjdk-17_35_linux-x64_bin.tar.gz
     sudo cp -r jdk-17 /opt/
     rm openjdk-17_35_linux-x64_bin.tar.gz
@@ -428,7 +418,6 @@ if [ -d apache-maven-3.8.6 ];then
     sudo cp -r apache-maven-3.8.6 /opt/
 else
     curl -L -o apache-maven-3.8.6-bin.tar.gz https://www.dropbox.com/s/vej28bg0b1uhxp7/apache-maven-3.8.6-bin.tar.gz?dl=0
-
     descompactar-tar-gz apache-maven-3.8.6-bin.tar.gz
     sudo cp -r apache-maven-3.8.6 /opt/
     rm apache-maven-3.8.6-bin.tar.gz
